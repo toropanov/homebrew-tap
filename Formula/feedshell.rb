@@ -1,15 +1,15 @@
 class Feedshell < Formula
   desc "Terminal RSS and Atom reader with Vim-style navigation"
   homepage "https://github.com/toropanov/feedshell"
-  url "https://github.com/toropanov/feedshell/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "f9e45227a8b6a4a7cbd9de761339895c5a343faa0bcf71bb649c165bc3c42996"
+  url "https://github.com/toropanov/feedshell/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "eeffcf53e5bbc26b529acacf4c90248d9faad442a02ab52e28d3eb4e2d055852"
   license "MIT"
 
   depends_on "node"
 
   def install
     libexec.install Dir["*"]
-    bin.write_env_script libexec/"bin/feedshell.js", PATH: formula_opt_bin("node")
+    bin.write_env_script libexec/"bin/feedshell", PATH: formula_opt_bin("node")
   end
 
   test do
