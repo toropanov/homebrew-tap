@@ -9,7 +9,7 @@ class Feedshell < Formula
 
   def install
     libexec.install Dir["*"]
-    bin.write_env_script libexec/"bin/feedshell.js", PATH: Formula["node"].opt_bin
+    bin.write_env_script libexec/"bin/feedshell.js", PATH: formula_opt_bin("node")
   end
 
   test do
