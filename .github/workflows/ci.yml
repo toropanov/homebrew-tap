@@ -1,0 +1,18 @@
+name: Formula CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-and-test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew tap "$GITHUB_REPOSITORY" "$GITHUB_WORKSPACE"
+      - run: brew audit --strict --online toropanov/tap/feedshell
+      - run: brew install --build-from-source toropanov/tap/feedshell
+      - run: brew test toropanov/tap/feedshell
